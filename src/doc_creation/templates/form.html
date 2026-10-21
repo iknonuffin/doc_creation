@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Форма для создания СКТС</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+
+<body>
+    <main class="container">
+        <form action="" method="post">
+            <fieldset>
+                <label>
+                    Имя
+                    <input name="first_name" placeholder="Имя" autocomplete="given-name" />
+                </label>
+                <label>
+                    Фамилия
+                    <input name="last_name" placeholder="Фамилия" autocomplete="family-name" />
+                </label>
+                <label>
+                    Отчество
+                    <input name="middle_name" placeholder="Отчество" autocomplete="additional-name" />
+                </label>
+                <label>
+                    Дата рождения
+                    <input type="date" name="date_of_birth" placeholder="Дата рождения" autocomplete="bday" />
+                </label>
+                <label>
+                    Паспорт
+                    <input name="passport" placeholder="Паспорт (серия и номер)" autocomplete="" />
+                </label>
+                <label>
+                    ИНН
+                    <input name="INN" placeholder="ИНН" autocomplete="" />
+                </label>
+                <label>
+                    Адрес регистрации
+                    <input name="Address" placeholder="Адрес регистрации" autocomplete="street-address" />
+                </label>
+            </fieldset>
+
+            <input type="submit" value="Создать" />
+        </form>
+    </main>
+</body>
+
+</html>
