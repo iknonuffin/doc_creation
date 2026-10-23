@@ -14,34 +14,49 @@
     <main class="container">
         <form action="" method="post">
             <fieldset>
-                <label>
+                {{ form.csrf_token }}
+
+                {{ form.собственник_ТС_имя.label }} {{ form.собственник_ТС_имя() }}
+                <!-- <label>
                     Имя
                     <input name="first_name" placeholder="Имя" autocomplete="given-name" />
-                </label>
-                <label>
+                </label> -->
+
+                {{ form.собственник_ТС_фамилия.label }} {{ form.собственник_ТС_фамилия() }}
+                <!-- <label>
                     Фамилия
                     <input name="last_name" placeholder="Фамилия" autocomplete="family-name" />
-                </label>
-                <label>
+                </label> -->
+
+                {{ form.собственник_ТС_отчество.label }} {{ form.собственник_ТС_отчество() }}
+                <!-- <label>
                     Отчество
                     <input name="middle_name" placeholder="Отчество" autocomplete="additional-name" />
-                </label>
-                <label>
+                </label> -->
+
+                {{ form.дата_рождения.label }} {{ form.дата_рождения(type="date") }}
+                <!-- <label>
                     Дата рождения
                     <input type="date" name="date_of_birth" placeholder="Дата рождения" autocomplete="bday" />
-                </label>
-                <label>
+                </label> -->
+
+                {{ form.паспорт_серия_номер.label }} {{ form.паспорт_серия_номер() }}
+                <!-- <label>
                     Паспорт
                     <input name="passport" placeholder="Паспорт (серия и номер)" autocomplete="" />
-                </label>
-                <label>
+                </label> -->
+
+                {{ form.инн.label }} {{ form.инн() }}
+                <!-- <label>
                     ИНН
                     <input name="INN" placeholder="ИНН" autocomplete="" />
-                </label>
-                <label>
+                </label> -->
+
+                {{ form.адрес.label }} {{ form.адрес() }}
+                <!-- <label>
                     Адрес регистрации
                     <input name="Address" placeholder="Адрес регистрации" autocomplete="street-address" />
-                </label>
+                </label> -->
             </fieldset>
 
             <input type="submit" value="Создать" />

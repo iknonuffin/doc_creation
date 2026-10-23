@@ -19,6 +19,7 @@ def index():
     form = SKTSForm()
 
     if form.validate_on_submit():
+        print("everything ok")
         doc = DocxTemplate(app.config["WORD_TEMPLATE_PATH"])
 
         context = {
@@ -29,6 +30,13 @@ def index():
             "Паспорт": "",
             "Адрес": "",
             "инициалы_и_фамилия": "",
+            "собственник_ТС_имя": form.собственник_ТС_имя.data,
+            "собственник_ТС_фамилия": form.собственник_ТС_фамилия.data,
+            "собственник_ТС_отчество": form.собственник_ТС_отчество.data,
+            "дата_рождения": form.дата_рождения.data,
+            "паспорт_собственник": form.паспорт_серия_номер.data,
+            "инн": form.инн.data,
+            "адрес_регистрации": form.адрес.data,
         }
 
         doc.render(context)
@@ -40,9 +48,11 @@ def index():
         return send_file(
             file_stream,
             as_attachment=True,
-            download_name=f"Заявление_СКТС_{form.собственник_ТС_имя.data}.docx",
+            download_name=f"Заявление_СКТС_{form.собственник_ТС_фамилия}_{form.собственник_ТС_имя.data}.docx",
             mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
         )
+
+    print(form.errors)
 
     return render_template("form.html", form=form)
 
