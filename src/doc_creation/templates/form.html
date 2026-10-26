@@ -17,7 +17,7 @@
                 {{ form.csrf_token }}
 
                 {{ form.собственник_ТС_имя.label }} {{ form.собственник_ТС_имя(
-                    **{'aria-invalid': 'true' if form.собственник_ТС_имя.errors else 'false'}
+                    **({'aria-invalid': 'true'} if form.собственник_ТС_имя.errors else {})
                     ) }}
                 {% if form.собственник_ТС_имя.errors %}
                     <small>
@@ -26,7 +26,7 @@
                 {% endif %}
 
                 {{ form.собственник_ТС_фамилия.label }} {{ form.собственник_ТС_фамилия(
-                    **{'aria-invalid': 'true' if form.собственник_ТС_фамилия.errors else 'false'}
+                    **({'aria-invalid': 'true'} if form.собственник_ТС_имя.errors else {})
                     ) }}
                 {% if form.собственник_ТС_фамилия.errors %}
                     <small>
@@ -35,7 +35,7 @@
                 {% endif %}
 
                 {{ form.собственник_ТС_отчество.label }} {{ form.собственник_ТС_отчество(
-                    **{'aria-invalid': 'true' if form.собственник_ТС_отчество.errors else 'false'}
+                    **({'aria-invalid': 'true'} if form.собственник_ТС_имя.errors else {})
                     ) }}
                 {% if form.собственник_ТС_отчество.errors %}
                     <small>
@@ -45,7 +45,7 @@
 
                 {{ form.дата_рождения.label }} {{ form.дата_рождения(
                     type="date",
-                    **{'aria-invalid': 'true' if form.дата_рождения.errors else 'false'}
+                    **({'aria-invalid': 'true'} if form.собственник_ТС_имя.errors else {})
                     ) }}
                 {% if form.дата_рождения.errors %}
                     <small>
@@ -53,17 +53,26 @@
                     </small>
                 {% endif %}
 
-                {{ form.паспорт_серия_номер.label }} {{ form.паспорт_серия_номер(
-                    **{'aria-invalid': 'true' if form.паспорт_серия_номер.errors else 'false'}
+                {{ form.паспорт_серия.label }} {{ form.паспорт_серия(
+                    **({'aria-invalid': 'true'} if form.собственник_ТС_имя.errors else {})
                     ) }}
-                {% if form.паспорт_серия_номер.errors %}
+                {% if form.паспорт_серия.errors %}
                     <small>
-                        {{ form.паспорт_серия_номер.errors | join('<br>') | safe }}
+                        {{ form.паспорт_серия.errors | join('<br>') | safe }}
+                    </small>
+                {% endif %}
+
+                {{ form.паспорт_номер.label }} {{ form.паспорт_номер(
+                    **({'aria-invalid': 'true'} if form.собственник_ТС_имя.errors else {})
+                    ) }}
+                {% if form.паспорт_номер.errors %}
+                    <small>
+                        {{ form.паспорт_номер.errors | join('<br>') | safe }}
                     </small>
                 {% endif %}
 
                 {{ form.инн.label }} {{ form.инн(
-                    **{'aria-invalid': 'true' if form.инн.errors else 'false'}
+                    **({'aria-invalid': 'true'} if form.собственник_ТС_имя.errors else {})
                     ) }}
                 {% if form.инн.errors %}
                     <small>
@@ -72,7 +81,7 @@
                 {% endif %}
 
                 {{ form.адрес.label }} {{ form.адрес(
-                    **{'aria-invalid': 'true' if form.адрес.errors else 'false'}
+                    **({'aria-invalid': 'true'} if form.собственник_ТС_имя.errors else {})
                     ) }}
                 {% if form.адрес.errors %}
                     <small>
