@@ -12,51 +12,73 @@
 
 <body>
     <main class="container">
-        <form action="" method="post">
+        <form action="" method="post" novalidate>
             <fieldset>
                 {{ form.csrf_token }}
 
-                {{ form.собственник_ТС_имя.label }} {{ form.собственник_ТС_имя() }}
-                <!-- <label>
-                    Имя
-                    <input name="first_name" placeholder="Имя" autocomplete="given-name" />
-                </label> -->
+                {{ form.собственник_ТС_имя.label }} {{ form.собственник_ТС_имя(
+                    **{'aria-invalid': 'true' if form.собственник_ТС_имя.errors else 'false'}
+                    ) }}
+                {% if form.собственник_ТС_имя.errors %}
+                    <small>
+                        {{ form.собственник_ТС_имя.errors | join('<br>') | safe }}
+                    </small>
+                {% endif %}
 
-                {{ form.собственник_ТС_фамилия.label }} {{ form.собственник_ТС_фамилия() }}
-                <!-- <label>
-                    Фамилия
-                    <input name="last_name" placeholder="Фамилия" autocomplete="family-name" />
-                </label> -->
+                {{ form.собственник_ТС_фамилия.label }} {{ form.собственник_ТС_фамилия(
+                    **{'aria-invalid': 'true' if form.собственник_ТС_фамилия.errors else 'false'}
+                    ) }}
+                {% if form.собственник_ТС_фамилия.errors %}
+                    <small>
+                        {{ form.собственник_ТС_фамилия.errors | join('<br>') | safe }}
+                    </small>
+                {% endif %}
 
-                {{ form.собственник_ТС_отчество.label }} {{ form.собственник_ТС_отчество() }}
-                <!-- <label>
-                    Отчество
-                    <input name="middle_name" placeholder="Отчество" autocomplete="additional-name" />
-                </label> -->
+                {{ form.собственник_ТС_отчество.label }} {{ form.собственник_ТС_отчество(
+                    **{'aria-invalid': 'true' if form.собственник_ТС_отчество.errors else 'false'}
+                    ) }}
+                {% if form.собственник_ТС_отчество.errors %}
+                    <small>
+                        {{ form.собственник_ТС_отчество.errors | join('<br>') | safe }}
+                    </small>
+                {% endif %}
 
-                {{ form.дата_рождения.label }} {{ form.дата_рождения(type="date") }}
-                <!-- <label>
-                    Дата рождения
-                    <input type="date" name="date_of_birth" placeholder="Дата рождения" autocomplete="bday" />
-                </label> -->
+                {{ form.дата_рождения.label }} {{ form.дата_рождения(
+                    type="date",
+                    **{'aria-invalid': 'true' if form.дата_рождения.errors else 'false'}
+                    ) }}
+                {% if form.дата_рождения.errors %}
+                    <small>
+                        {{ form.дата_рождения.errors | join('<br>') | safe }}
+                    </small>
+                {% endif %}
 
-                {{ form.паспорт_серия_номер.label }} {{ form.паспорт_серия_номер() }}
-                <!-- <label>
-                    Паспорт
-                    <input name="passport" placeholder="Паспорт (серия и номер)" autocomplete="" />
-                </label> -->
+                {{ form.паспорт_серия_номер.label }} {{ form.паспорт_серия_номер(
+                    **{'aria-invalid': 'true' if form.паспорт_серия_номер.errors else 'false'}
+                    ) }}
+                {% if form.паспорт_серия_номер.errors %}
+                    <small>
+                        {{ form.паспорт_серия_номер.errors | join('<br>') | safe }}
+                    </small>
+                {% endif %}
 
-                {{ form.инн.label }} {{ form.инн() }}
-                <!-- <label>
-                    ИНН
-                    <input name="INN" placeholder="ИНН" autocomplete="" />
-                </label> -->
+                {{ form.инн.label }} {{ form.инн(
+                    **{'aria-invalid': 'true' if form.инн.errors else 'false'}
+                    ) }}
+                {% if form.инн.errors %}
+                    <small>
+                        {{ form.инн.errors | join('<br>') | safe }}
+                    </small>
+                {% endif %}
 
-                {{ form.адрес.label }} {{ form.адрес() }}
-                <!-- <label>
-                    Адрес регистрации
-                    <input name="Address" placeholder="Адрес регистрации" autocomplete="street-address" />
-                </label> -->
+                {{ form.адрес.label }} {{ form.адрес(
+                    **{'aria-invalid': 'true' if form.адрес.errors else 'false'}
+                    ) }}
+                {% if form.адрес.errors %}
+                    <small>
+                        {{ form.адрес.errors | join('<br>') | safe }}
+                    </small>
+                {% endif %}
             </fieldset>
 
             <input type="submit" value="Создать" />

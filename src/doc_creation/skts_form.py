@@ -34,15 +34,14 @@ class SKTSForm(FlaskForm):
 
     паспорт_серия_номер = StringField(
         "Паспорт (серия и номер)",
-        validators=[
-            DataRequired(message="Укажите серию и номер паспорта"),
-        ],
+        validators=[DataRequired(message="Укажите серию и номер паспорта")],
     )
 
     инн = StringField(
         "ИНН",
         validators=[
             DataRequired(message="Укажите ИНН"),
+            Length(min=10, max=12, message="ИНН должен быть от 10 или 12 символов"),
         ],
     )
 
